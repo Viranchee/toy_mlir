@@ -3,6 +3,8 @@ project(Toy LANGUAGES CXX C)
 
 set(CMAKE_BUILD_WITH_INSTALL_NAME_DIR ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard to conform to")
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
@@ -52,3 +54,5 @@ if(MLIR_ENABLE_BINDINGS_PYTHON)
 endif()
 
 add_executable(toyc toyc.cpp parser/AST.cpp)
+
+target_link_libraries(toyc PRIVATE MLIRIR)
